@@ -41,8 +41,8 @@ namespace updated_group_project
                     IConfigurationSection googleAuthNSection =
                     Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = "1024743469888-uehh67a0v2gd0ctt8uga8u102odavn37.apps.googleusercontent.com";
-                    options.ClientSecret = "aMaGH56Pzy6E3 - PH4sElDqMJ";
+                    options.ClientId = "933108614731-b22v22urc21j3p8af1101d9k9otoq61g.apps.googleusercontent.com";
+                    options.ClientSecret = "KH6EPAP-fATI_2Eo6Ycua9N-";
                 });
         }
 
