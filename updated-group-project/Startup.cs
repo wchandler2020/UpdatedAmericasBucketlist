@@ -12,6 +12,10 @@ using updated_group_project.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using updated_group_project.Interfaces;
+using updated_group_project.Service;
+using updated_group_project.Models;
+using updated_group_project.Services;
 
 namespace updated_group_project
 {
@@ -27,6 +31,8 @@ namespace updated_group_project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IWeatherService, WeatherService>();
+            services.AddTransient<IEventService, EventServices>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
