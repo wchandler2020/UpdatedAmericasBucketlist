@@ -25,7 +25,5 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Views\Events\" />
-  </ItemGroup>
 
 </Project>
