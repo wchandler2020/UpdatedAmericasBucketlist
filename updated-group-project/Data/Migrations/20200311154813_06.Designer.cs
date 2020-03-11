@@ -10,8 +10,8 @@ using updated_group_project.Data;
 namespace updated_group_project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200311133339_thing")]
-    partial class thing
+    [Migration("20200311154813_06")]
+    partial class _06
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -228,47 +228,6 @@ namespace updated_group_project.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-<<<<<<< HEAD:updated-group-project/Data/Migrations/20200311133339_thing.Designer.cs
-                    b.Property<DateTime>("End")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EventLocation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EventPrice")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EventType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("HaveBeen")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Review")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Start")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EventId");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("updated_group_project.Models.Profile", b =>
-=======
                     b.Property<string>("cityName")
                         .HasColumnType("nvarchar(max)");
 
@@ -299,7 +258,6 @@ namespace updated_group_project.Data.Migrations
                 });
 
             modelBuilder.Entity("updated_group_project.Models.User", b =>
->>>>>>> 5ed39684a8cd6cc13592bf121e50f5ea3e9571eb:updated-group-project/Data/Migrations/ApplicationDbContextModelSnapshot.cs
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -379,16 +337,6 @@ namespace updated_group_project.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-<<<<<<< HEAD:updated-group-project/Data/Migrations/20200311133339_thing.Designer.cs
-
-            modelBuilder.Entity("updated_group_project.Models.User", b =>
-                {
-                    b.HasOne("updated_group_project.Models.Profile", "profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId");
-                });
-=======
->>>>>>> 5ed39684a8cd6cc13592bf121e50f5ea3e9571eb:updated-group-project/Data/Migrations/ApplicationDbContextModelSnapshot.cs
 #pragma warning restore 612, 618
         }
     }
