@@ -10,85 +10,95 @@ using updated_group_project.Models;
 
 namespace updated_group_project.Controllers
 {
-    public class EventsController : Controller
+    public class WeathersController : Controller
     {
         private readonly ApplicationDbContext _context;
- 
-        public EventsController(ApplicationDbContext context)
+
+        public WeathersController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Events
-        public async Task<IActionResult> Index()
+        [Route("api/[controller]")]
+        public class WeatherController : Controller
         {
-            return View(await _context.Events.ToListAsync());
+            [HttpGet("[action]/{city}")]
+            public IActionResult City(string city)
+            {
+                return Ok(new { Temp = "12", Summary = "Barmy", City = city });
+            }
         }
 
-        // GET: Events/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Weathers
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Weather.ToListAsync());
+        }
+
+        // GET: Weathers/Details/5
+        public async Task<IActionResult> Details(DateTime? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            var weather = await _context.Weather
+                .FirstOrDefaultAsync(m => m.Date == id);
+            if (weather == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(weather);
         }
 
-        // GET: Events/Create
+        // GET: Weathers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Events/Create
+        // POST: Weathers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventId,EventName,EventType,Start,End,EventPrice,EventLocation,Rating,Review,HaveBeen")] Event @event)
+        public async Task<IActionResult> Create([Bind("Date,TodaysWeather,Tempurature")] Weather weather)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@event);
+                _context.Add(weather);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            return View(weather);
         }
 
-        // GET: Events/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Weathers/Edit/5
+        public async Task<IActionResult> Edit(DateTime? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var @event = await _context.Events.FindAsync(id);
-            if (@event == null)
+            var weather = await _context.Weather.FindAsync(id);
+            if (weather == null)
             {
                 return NotFound();
             }
-            return View(@event);
+            return View(weather);
         }
 
-        // POST: Events/Edit/5
+        // POST: Weathers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventId,EventName,EventType,Start,End,EventPrice,EventLocation,Rating,Review,HaveBeen")] Event @event)
+        public async Task<IActionResult> Edit(DateTime id, [Bind("Date,TodaysWeather,Tempurature")] Weather weather)
         {
-            if (id != @event.EventId)
+            if (id != weather.Date)
             {
                 return NotFound();
             }
@@ -97,12 +107,12 @@ namespace updated_group_project.Controllers
             {
                 try
                 {
-                    _context.Update(@event);
+                    _context.Update(weather);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(@event.EventId))
+                    if (!WeatherExists(weather.Date))
                     {
                         return NotFound();
                     }
@@ -113,46 +123,41 @@ namespace updated_group_project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            return View(weather);
         }
 
-        // GET: Events/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Weathers/Delete/5
+        public async Task<IActionResult> Delete(DateTime? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            var weather = await _context.Weather
+                .FirstOrDefaultAsync(m => m.Date == id);
+            if (weather == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(weather);
         }
 
-        // POST: Events/Delete/5
+        // POST: Weathers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(DateTime id)
         {
-            var @event = await _context.Events.FindAsync(id);
-            _context.Events.Remove(@event);
+            var weather = await _context.Weather.FindAsync(id);
+            _context.Weather.Remove(weather);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult Map ()
+        private bool WeatherExists(DateTime id)
         {
-            return View();
-        }
-
-        private bool EventExists(int id)
-        {
-            return _context.Events.Any(e => e.EventId == id);
+            return _context.Weather.Any(e => e.Date == id);
         }
     }
 }
