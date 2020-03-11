@@ -27,7 +27,7 @@ namespace updated_group_project.Models
     public class Coord
     {
         public float lon { get; set; }
-        public float lat { get; set; }
+        public int lat { get; set; }
     }
 
     public class Main
@@ -35,7 +35,11 @@ namespace updated_group_project.Models
         public float temp { get; set; }
         public float feels_like { get; set; }
         public int temp_min { get; set; }
+<<<<<<< HEAD
         public float temp_max { get; set; }
+=======
+        public int temp_max { get; set; }
+>>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
@@ -67,6 +71,5 @@ namespace updated_group_project.Models
         public string description { get; set; }
         public string icon { get; set; }
     }
-
 
 }
