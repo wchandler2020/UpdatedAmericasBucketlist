@@ -22,12 +22,22 @@ namespace updated_group_project.Models
         public string name { get; set; }
         public int cod { get; set; }
     }
+<<<<<<< HEAD
 
     public class Coord
     {
         public float lon { get; set; }
         public float lat { get; set; }
     }
+=======
+    
+    public class Coord
+    {
+        public float lon { get; set; }
+        public float lat { get; set; }
+    }
+
+>>>>>>> 6bbd1a172bb2611a753be1824ee1a355f87c9657
 
     public class Main
     {
