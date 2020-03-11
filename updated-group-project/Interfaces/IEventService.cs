@@ -8,6 +8,6 @@ namespace updated_group_project.Interfaces
 {
     public interface IEventService
     {
-        Task<Event> GetEvent(User user);
+        Task<EventObject> GetEvent();
     }
 }

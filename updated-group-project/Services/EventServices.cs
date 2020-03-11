@@ -17,19 +17,20 @@ namespace updated_group_project.Services
 
         }
 
-        public async Task<Event> GetEvent(User user)
+        public async Task<EventObject> GetEvent()
         {
-            var City = user.profile.City;
+
+            var City = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
-                await client.GetAsync($"api.eventful" +
+                await client.GetAsync($"http://api.eventful" +
                 $".com/json/events/search?...&location={City}"+
-                $"{APIKeys.EventfulApiKey}");
+                $"&date=Future &app_key={APIKeys.EventfulApiKey}");
 
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<Event>(json);
+                return JsonConvert.DeserializeObject<EventObject>(json);
             }
             return null;
         }

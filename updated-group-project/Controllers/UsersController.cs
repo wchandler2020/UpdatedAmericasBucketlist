@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,7 +45,7 @@ namespace updated_group_project.Controllers
         }
 
         // GET: Users/Create
-        public IActionResult Create()
+        public IActionResult CreateUser()
         {
             return View();
         }
@@ -54,10 +55,12 @@ namespace updated_group_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Username")] User user)
+        public async Task<IActionResult> CreateUser([Bind("UserId,Username,FirstName,LastName,Email,Address,City")] User user)
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                user.AppUserId = userId;
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +89,7 @@ namespace updated_group_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username,FirstName,LastName,Email,Address,City")] User user)
         {
             if (id != user.UserId)
             {
@@ -149,6 +152,5 @@ namespace updated_group_project.Controllers
         {
             return _context.User.Any(e => e.UserId == id);
         }
-
     }
 }

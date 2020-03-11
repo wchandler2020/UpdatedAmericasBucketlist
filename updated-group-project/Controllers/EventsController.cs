@@ -28,7 +28,6 @@ namespace updated_group_project.Controllers
             return await _context.Events.ToListAsync();
         }
 
-
         // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)

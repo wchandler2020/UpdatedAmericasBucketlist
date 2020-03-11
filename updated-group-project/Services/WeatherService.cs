@@ -17,13 +17,14 @@ namespace updated_group_project.Service
 
         }
 
-        public async Task<Weather>GetWeather(User user)
+        public async Task<Weather>GetWeather()
         {
-            var city = user.profile.City;
+            var city = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"api.openweathermap" +
-                $".org/data/2.5/weather?q={city}&appid =" +
+                $".org/data/2.5/weather?q={city}&appid=" +
+
                 $"{APIKeys.OpenWeatherKey}");
 
             if (response.IsSuccessStatusCode)
