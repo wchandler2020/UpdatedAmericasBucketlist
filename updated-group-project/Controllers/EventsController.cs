@@ -15,7 +15,7 @@ namespace updated_group_project.Controllers
     public class EventsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
+ 
         public EventsController(ApplicationDbContext context)
         {
             _context = context;
@@ -101,6 +101,11 @@ namespace updated_group_project.Controllers
             await _context.SaveChangesAsync();
 
             return @event;
+        }
+
+        public ActionResult Map ()
+        {
+            return View();
         }
 
         private bool EventExists(int id)
