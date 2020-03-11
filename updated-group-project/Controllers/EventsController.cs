@@ -12,7 +12,7 @@ namespace updated_group_project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventsController : ControllerBase
+    public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;
  
@@ -27,7 +27,6 @@ namespace updated_group_project.Controllers
         {
             return await _context.Events.ToListAsync();
         }
-
 
         // GET: api/Events/5
         [HttpGet("{id}")]

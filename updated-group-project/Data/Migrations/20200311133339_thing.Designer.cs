@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using updated_group_project.Data;
 
 namespace updated_group_project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200311133339_thing")]
+    partial class thing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -219,13 +221,14 @@ namespace updated_group_project.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("updated_group_project.Models.Event", b =>
+            modelBuilder.Entity("updated_group_project.Models.EventDetails", b =>
                 {
-                    b.Property<int>("EventId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+<<<<<<< HEAD:updated-group-project/Data/Migrations/20200311133339_thing.Designer.cs
                     b.Property<DateTime>("End")
                         .HasColumnType("datetime2");
 
@@ -253,29 +256,69 @@ namespace updated_group_project.Data.Migrations
                     b.Property<DateTime>("Start")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("EventId");
 
                     b.ToTable("Events");
                 });
 
             modelBuilder.Entity("updated_group_project.Models.Profile", b =>
-                {
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(450)");
+=======
+                    b.Property<string>("cityName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("name");
+                    b.Property<string>("desciption")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Profile");
+                    b.Property<string>("image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("startTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("stopTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("venueAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("venueDisplay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EventDetails");
                 });
 
             modelBuilder.Entity("updated_group_project.Models.User", b =>
+>>>>>>> 5ed39684a8cd6cc13592bf121e50f5ea3e9571eb:updated-group-project/Data/Migrations/ApplicationDbContextModelSnapshot.cs
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Location")
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -284,22 +327,6 @@ namespace updated_group_project.Data.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("updated_group_project.Models.Weather", b =>
-                {
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Tempurature")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TodaysWeather")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Date");
-
-                    b.ToTable("Weather");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -352,6 +379,16 @@ namespace updated_group_project.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
+<<<<<<< HEAD:updated-group-project/Data/Migrations/20200311133339_thing.Designer.cs
+
+            modelBuilder.Entity("updated_group_project.Models.User", b =>
+                {
+                    b.HasOne("updated_group_project.Models.Profile", "profile")
+                        .WithMany()
+                        .HasForeignKey("ProfileId");
+                });
+=======
+>>>>>>> 5ed39684a8cd6cc13592bf121e50f5ea3e9571eb:updated-group-project/Data/Migrations/ApplicationDbContextModelSnapshot.cs
 #pragma warning restore 612, 618
         }
     }
