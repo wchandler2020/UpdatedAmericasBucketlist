@@ -6,6 +6,13 @@
     <RootNamespace>updated_group_project</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Events\**" />
+    <Content Remove="Views\Events\**" />
+    <EmbeddedResource Remove="Views\Events\**" />
+    <None Remove="Views\Events\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.2" />
@@ -20,11 +27,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Views\Events\" />
   </ItemGroup>
 
 </Project>
