@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.ComponentModel.DataAnnotations;
-
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,12 +8,10 @@ namespace updated_group_project.Models
 {
     public class Weather
     {
-
         [Key]
         public DateTime Date { get; set; }
         public string TodaysWeather { get; set; }
         public int Tempurature { get; set; }
-
         public Coord coord { get; set; }
         public MainWeather[] weather { get; set; }
         public string _base { get; set; }
@@ -27,13 +23,11 @@ namespace updated_group_project.Models
         public string name { get; set; }
         public int cod { get; set; }
     }
-
     public class Coord
     {
         public float lon { get; set; }
         public float lat { get; set; }
     }
-
     public class Main
     {
         public float temp { get; set; }
@@ -43,9 +37,6 @@ namespace updated_group_project.Models
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
-
-  
-
     public class Sys
     {
         public int type { get; set; }
@@ -54,7 +45,6 @@ namespace updated_group_project.Models
         public int sunrise { get; set; }
         public int sunset { get; set; }
     }
-
     public class MainWeather
     {
         public int id { get; set; }
@@ -63,3 +53,4 @@ namespace updated_group_project.Models
         public string icon { get; set; }
     }
 }
+
