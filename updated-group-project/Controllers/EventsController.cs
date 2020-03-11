@@ -103,10 +103,10 @@ namespace updated_group_project.Controllers
             return @event;
         }
 
-        public ActionResult Map ()
-        {
-            return View();
-        }
+        //public ActionResult Map ()
+        //{
+        //    return View();
+        //}
 
         private bool EventExists(int id)
         {
