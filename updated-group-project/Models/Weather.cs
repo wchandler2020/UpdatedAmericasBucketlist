@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace updated_group_project.Models
 {
-    public class Weather
+
+    public class Rootobject
     {
         public Coord coord { get; set; }
         public MainWeather[] weather { get; set; }
@@ -22,29 +23,19 @@ namespace updated_group_project.Models
         public string name { get; set; }
         public int cod { get; set; }
     }
-<<<<<<< HEAD
 
     public class Coord
     {
         public float lon { get; set; }
-        public float lat { get; set; }
+        public int lat { get; set; }
     }
-=======
-    
-    public class Coord
-    {
-        public float lon { get; set; }
-        public float lat { get; set; }
-    }
-
->>>>>>> 6bbd1a172bb2611a753be1824ee1a355f87c9657
 
     public class Main
     {
         public float temp { get; set; }
         public float feels_like { get; set; }
-        public float temp_min { get; set; }
-        public float temp_max { get; set; }
+        public int temp_min { get; set; }
+        public int temp_max { get; set; }
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
@@ -53,7 +44,6 @@ namespace updated_group_project.Models
     {
         public float speed { get; set; }
         public int deg { get; set; }
-        public float gust { get; set; }
     }
 
     public class Clouds
@@ -77,6 +67,5 @@ namespace updated_group_project.Models
         public string description { get; set; }
         public string icon { get; set; }
     }
-
 
 }

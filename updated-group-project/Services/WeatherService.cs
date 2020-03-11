@@ -10,14 +10,14 @@ using updated_group_project.Views;
 
 namespace updated_group_project.Service
 {
-    public class WeatherService: IWeatherService 
+    public class WeatherService: IWeatherService
     {
         public WeatherService()
         {
 
         }
 
-        public async Task<Weather>GetWeather()
+        public async Task<MainWeather>GetWeather()
         {
             var city = "Chicago";
             HttpClient client = new HttpClient();
@@ -30,7 +30,7 @@ namespace updated_group_project.Service
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<Weather>(json);
+                return JsonConvert.DeserializeObject<MainWeather>(json);
             }
             return null;
         }
