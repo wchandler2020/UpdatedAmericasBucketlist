@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using updated_group_project.Data;
 
 namespace updated_group_project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200310134513_03")]
+    partial class _03
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -335,22 +337,6 @@ namespace updated_group_project.Data.Migrations
                     b.HasIndex("ProfileId");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("updated_group_project.Models.Weather", b =>
-                {
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Tempurature")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TodaysWeather")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Date");
-
-                    b.ToTable("Weather");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

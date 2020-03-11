@@ -19,7 +19,7 @@ namespace updated_group_project.Services
 
         public async Task<Event> GetEvent(User user)
         {
-            var City = user.profile.City;
+            var City = user.City;
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"api.eventful" +

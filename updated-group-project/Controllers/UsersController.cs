@@ -54,7 +54,7 @@ namespace updated_group_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Username")] User user)
+        public async Task<IActionResult> Create([Bind("UserId,Username,FirstName,LastName,Email,Address,City")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace updated_group_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username,FirstName,LastName,Email,Address,City")] User user)
         {
             if (id != user.UserId)
             {
@@ -149,6 +149,5 @@ namespace updated_group_project.Controllers
         {
             return _context.User.Any(e => e.UserId == id);
         }
-
     }
 }
