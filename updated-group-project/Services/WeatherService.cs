@@ -19,7 +19,6 @@ namespace updated_group_project.Service
 
         public async Task<Weather>GetWeather(User user)
         {
-
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"api.openweathermap" +

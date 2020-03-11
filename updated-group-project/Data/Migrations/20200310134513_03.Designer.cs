@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using updated_group_project.Data;
 
 namespace updated_group_project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200310134513_03")]
+    partial class _03
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,23 +228,26 @@ namespace updated_group_project.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("AllDay")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("End")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EventLocation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EventPrice")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EventType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Free")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("HaveBeen")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -253,15 +258,65 @@ namespace updated_group_project.Data.Migrations
                     b.Property<DateTime>("Start")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("catagoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("EventId");
 
+                    b.HasIndex("catagoryId");
+
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("updated_group_project.Models.Event+Catagory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Catagory");
+                });
+
+            modelBuilder.Entity("updated_group_project.Models.Profile", b =>
+                {
+                    b.Property<int>("ProfileId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProfileId");
+
+                    b.ToTable("Profile");
                 });
 
             modelBuilder.Entity("updated_group_project.Models.User", b =>
@@ -271,24 +326,15 @@ namespace updated_group_project.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("ProfileId")
                         .HasColumnType("int");
-
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("ProfileId");
 
                     b.ToTable("User");
                 });
@@ -344,11 +390,18 @@ namespace updated_group_project.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("updated_group_project.Models.Event", b =>
+                {
+                    b.HasOne("updated_group_project.Models.Event+Catagory", "catagory")
+                        .WithMany()
+                        .HasForeignKey("catagoryId");
+                });
+
             modelBuilder.Entity("updated_group_project.Models.User", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AppUser")
+                    b.HasOne("updated_group_project.Models.Profile", "profile")
                         .WithMany()
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("ProfileId");
                 });
 #pragma warning restore 612, 618
         }

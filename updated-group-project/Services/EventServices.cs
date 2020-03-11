@@ -19,7 +19,8 @@ namespace updated_group_project.Services
 
         public async Task<Event> GetEvent(User user)
         {
-    
+
+
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"api.eventful" +

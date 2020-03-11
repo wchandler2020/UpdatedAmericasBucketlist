@@ -16,6 +16,5 @@ namespace updated_group_project.Data
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<User> User { get; set; }
-        
     }
 }
