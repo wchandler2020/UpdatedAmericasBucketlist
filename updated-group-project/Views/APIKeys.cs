@@ -14,6 +14,9 @@ namespace updated_group_project.Views
 =======
 >>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
         public static readonly string EventfulApiKey = "JWsFDt7StgkxZdZb";
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
     }
 }
