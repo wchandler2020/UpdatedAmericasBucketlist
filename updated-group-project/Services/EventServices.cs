@@ -19,11 +19,11 @@ namespace updated_group_project.Services
 
         public async Task<Event> GetEvent(User user)
         {
-            var City = user.profile.City;
+    
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"api.eventful" +
-                $".com/json/events/search?...&location={City}"+
+                $".com/json/events/search?...&location={user.City}"+
                 $"{APIKeys.EventfulApiKey}");
 
             if (response.IsSuccessStatusCode)

@@ -10,8 +10,6 @@ namespace updated_group_project.Models
 {
     public class Weather
     {
-
-        [Key]
         public DateTime Date { get; set; }
         public string TodaysWeather { get; set; }
         public int Tempurature { get; set; }
@@ -27,7 +25,7 @@ namespace updated_group_project.Models
         public string name { get; set; }
         public int cod { get; set; }
     }
-
+    
     public class Coord
     {
         public float lon { get; set; }

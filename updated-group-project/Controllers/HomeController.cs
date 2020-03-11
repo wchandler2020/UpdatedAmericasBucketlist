@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Differencing;
 using Microsoft.Extensions.Logging;
 using updated_group_project.Models;
 
@@ -20,10 +21,10 @@ namespace updated_group_project.Controllers
 
         [HttpGet]
         // Get ALL events
-       
-
+      
         public IActionResult Index()
         {
+            //redirect after google login
             return View();
         }
 

@@ -12,7 +12,7 @@ namespace updated_group_project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventsController : ControllerBase
+    public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;
  
