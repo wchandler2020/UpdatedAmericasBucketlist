@@ -14,8 +14,8 @@ namespace updated_group_project.Data
         {
 
         }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<EventDetails> EventDetails { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<updated_group_project.Models.Weather> Weather { get; set; }
+        
     }
 }

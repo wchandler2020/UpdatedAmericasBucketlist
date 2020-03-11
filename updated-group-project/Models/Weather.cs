@@ -10,18 +10,15 @@ namespace updated_group_project.Models
 {
     public class Weather
     {
-
-        [Key]
         public DateTime Date { get; set; }
         public string TodaysWeather { get; set; }
         public int Tempurature { get; set; }
-
         public Coord coord { get; set; }
         public MainWeather[] weather { get; set; }
         public string _base { get; set; }
         public Main main { get; set; }
         public int visibility { get; set; }
-        public Wind wind { get; set; }
+        public Wind Wind { get; set; }
         public Clouds clouds { get; set; }
         public int dt { get; set; }
         public Sys sys { get; set; }
