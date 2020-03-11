@@ -18,6 +18,10 @@ namespace updated_group_project.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        // Get ALL events
+       
+
         public IActionResult Index()
         {
             return View();
