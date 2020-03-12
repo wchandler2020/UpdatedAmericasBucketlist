@@ -1,0 +1,63 @@
+﻿@model updated_group_project.Models.Event[]
+@{
+    ViewData["Title"] = "GetEvents";
+}
+
+<h1>GetEvents</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                City Name
+            </th>
+            <th>
+                Start Time
+            </th>
+            <th>
+                Stop Time
+            </th>
+            <th>
+                Venu Name
+            </th>
+            <th>
+                Venu Address
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.start_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stop_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.venue_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.venue_address)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

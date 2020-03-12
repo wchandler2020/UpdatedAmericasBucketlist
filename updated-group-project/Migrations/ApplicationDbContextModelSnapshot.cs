@@ -219,48 +219,6 @@ namespace updated_group_project.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("updated_group_project.Models.EventDetails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("city_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("desciption")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("start_time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("stop_time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("venue_address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("venue_display")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("venue_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("venue_time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EventDetails");
-                });
-
             modelBuilder.Entity("updated_group_project.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -300,6 +258,45 @@ namespace updated_group_project.Migrations
                     b.HasIndex("AppUserId");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("updated_group_project.Models.UserEventDetails", b =>
+                {
+                    b.Property<int>("IEventId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("city_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("start_time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("stop_time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("venue_address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("venue_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IEventId");
+
+                    b.ToTable("UserEventDetails");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

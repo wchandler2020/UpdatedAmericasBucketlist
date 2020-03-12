@@ -13,7 +13,7 @@ namespace updated_group_project.Data
             : base(options)
         {
         }
-        public DbSet<EventDetails> EventDetails { get; set; }
+        public DbSet<UserEventDetails> UserEventDetails { get; set; }
         public DbSet<User> User { get; set; }
 
     }
