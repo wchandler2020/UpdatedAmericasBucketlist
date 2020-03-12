@@ -15,6 +15,7 @@ namespace updated_group_project.Models
         public Main main { get; set; }
         public int visibility { get; set; }
         public Wind wind { get; set; }
+        public Rain rain { get; set; }
         public Clouds clouds { get; set; }
         public int dt { get; set; }
         public Sys sys { get; set; }
@@ -26,16 +27,16 @@ namespace updated_group_project.Models
 
     public class Coord
     {
-        public float lon { get; set; }
-        public int lat { get; set; }
+        public int lon { get; set; }
+        public float lat { get; set; }
     }
 
     public class Main
     {
         public float temp { get; set; }
         public float feels_like { get; set; }
-        public int temp_min { get; set; }
-        public int temp_max { get; set; }
+        public float temp_min { get; set; }
+        public float temp_max { get; set; }
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
@@ -44,6 +45,11 @@ namespace updated_group_project.Models
     {
         public float speed { get; set; }
         public int deg { get; set; }
+    }
+
+    public class Rain
+    {
+        public float _1h { get; set; }
     }
 
     public class Clouds
@@ -60,12 +66,11 @@ namespace updated_group_project.Models
         public int sunset { get; set; }
     }
 
-    public class MainWeather
+    public class  MainWeather 
     {
         public int id { get; set; }
         public string main { get; set; }
         public string description { get; set; }
         public string icon { get; set; }
     }
-
 }

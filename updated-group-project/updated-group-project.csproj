@@ -6,6 +6,13 @@
     <RootNamespace>updated_group_project</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Events\**" />
+    <Content Remove="Views\Events\**" />
+    <EmbeddedResource Remove="Views\Events\**" />
+    <None Remove="Views\Events\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.2" />
@@ -25,6 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

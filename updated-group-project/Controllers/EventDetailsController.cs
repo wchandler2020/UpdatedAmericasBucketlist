@@ -21,11 +21,33 @@ namespace updated_group_project.Controllers
         }
 
         // GET: EventDetails
+
+        //public async Task<IActionResult> Index([FromServices] IEventService eventServices)
+        //{
+        //    EventObject eventFull = await eventServices.GetEvent();
+        //    _context.EventDetails.Where(c => c.title == );
+        //    return View(eventFull);
+        //}
+
         public async Task<IActionResult> Index([FromServices] IEventService eventServices)
         {
+            EventDetails eventDetails = new EventDetails();
             EventObject eventFull = await eventServices.GetEvent();
-            
-            return View(eventFull);
+
+            foreach (Event e in eventFull.events.eventArray)
+            {
+                eventDetails.city_name = e.city_name;
+                eventDetails.desciption = e.description;
+                eventDetails.title = e.title;
+                eventDetails.start_time = e.start_time;
+                eventDetails.start_time = e.stop_time;
+                eventDetails.venue_name = e.venue_name;
+                eventDetails.venue_display = e.venue_display;
+                //check if exists
+            }
+            _context.SaveChanges();
+            return View(eventDetails);
+
         }
 
         // GET: EventDetails/Details/5
@@ -147,7 +169,6 @@ namespace updated_group_project.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool EventDetailsExists(int id)
         {
             return _context.EventDetails.Any(e => e.Id == id);

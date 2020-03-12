@@ -19,6 +19,7 @@ namespace updated_group_project.Service
 
         public async Task<Weather>GetWeather()
         {
+
             var city = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
@@ -33,6 +34,11 @@ namespace updated_group_project.Service
                 return JsonConvert.DeserializeObject<Weather>(json);
             }
             return null;
+        }
+
+        Task<MainWeather> IWeatherService.GetWeather()
+        {
+            throw new NotImplementedException();
         }
     }
 }
