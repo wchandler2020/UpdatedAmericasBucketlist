@@ -27,10 +27,8 @@ namespace updated_group_project.Models
 
     public class Coord
     {
-
         public int lon { get; set; }
         public float lat { get; set; }
-
     }
 
     public class Main
@@ -48,6 +46,7 @@ namespace updated_group_project.Models
         public float speed { get; set; }
         public int deg { get; set; }
     }
+
     public class Rain
     {
         public float _1h { get; set; }
@@ -67,12 +66,11 @@ namespace updated_group_project.Models
         public int sunset { get; set; }
     }
 
-    public class MainWeather
+    public class  MainWeather 
     {
         public int id { get; set; }
         public string main { get; set; }
         public string description { get; set; }
         public string icon { get; set; }
     }
-
 }

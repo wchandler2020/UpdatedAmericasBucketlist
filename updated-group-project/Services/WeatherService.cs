@@ -19,6 +19,7 @@ namespace updated_group_project.Service
 
         public async Task<MainWeather>GetWeather()
         {
+
             var city = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
