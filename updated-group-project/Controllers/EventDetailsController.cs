@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using updated_group_project.Data;
 using updated_group_project.Interfaces;
@@ -21,12 +18,12 @@ namespace updated_group_project.Controllers
         }
 
         // GET: EventDetails
-        public async Task<IActionResult> Index([FromServices] IEventService eventServices)
-        {
-            EventObject eventFull = await eventServices.GetEvent();
-            _context.EventDetails.Where(c => c.title == );
-            return View(eventFull);
-        }
+        //public async Task<IActionResult> Index([FromServices] IEventService eventServices)
+        //{
+        //    //EventObject eventFull = await eventServices.GetEvent();
+        //    //_context.EventDetails.Where(c => c.title == eventFull. );
+        //    //return View(eventFull);
+        //}
 
         // GET: EventDetails/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -63,7 +60,7 @@ namespace updated_group_project.Controllers
             {
                 _context.Add(eventDetails);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               // return RedirectToAction(nameof(Index));
             }
             return View(eventDetails);
         }
@@ -114,7 +111,7 @@ namespace updated_group_project.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+               // return RedirectToAction(nameof(Index));
             }
             return View(eventDetails);
         }
@@ -140,13 +137,13 @@ namespace updated_group_project.Controllers
         // POST: EventDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var eventDetails = await _context.EventDetails.FindAsync(id);
-            _context.EventDetails.Remove(eventDetails);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+       //// public async Task<IActionResult> DeleteConfirmed(int id)
+       // {
+       //     var eventDetails = await _context.EventDetails.FindAsync(id);
+       //     _context.EventDetails.Remove(eventDetails);
+       //     await _context.SaveChangesAsync();
+       //    // return RedirectToAction(nameof(Index));
+       // }
 
         private bool EventDetailsExists(int id)
         {
