@@ -18,26 +18,21 @@ namespace updated_group_project.Controllers
         public EventDetailsController(ApplicationDbContext context)
         {
             _context = context;
+            
         }
 
         // GET: EventDetails
         public async Task<IActionResult> Index([FromServices] IEventService eventServices)
         {
-            EventDetails eventDetails = new EventDetails();
+          
             EventObject eventFull = await eventServices.GetEvent();
-            foreach (Event e in eventFull.events.eventArray)
-            {
-                eventDetails.cityName = e.city_name;
-                eventDetails.desciption = e.description;
-                eventDetails.title = e.title;
-                eventDetails.startTime = e.start_time;
-                eventDetails.startTime = e.stop_time;
-                eventDetails.venueAddress = e.venue_address;
-                eventDetails.venueDisplay = e.venue_display;
-                //check if exists
-            }
-            _context.SaveChanges();
-            return View(eventDetails);
+            return View(eventFull.events.eventArray);
+        }
+
+        public async Task<IActionResult> EventGetWeather([FromServices] IWeatherService weatherService)
+        {
+            WeatherObject weather = await weatherService.GetWeather();
+            return View(weather.weather);
         }
 
         // GET: EventDetails/Details/5

@@ -17,13 +17,13 @@ namespace updated_group_project.Service
 
         }
 
-        public async Task<MainWeather>GetWeather()
+        public async Task<WeatherObject>GetWeather()
         {
 
             var city = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
-                await client.GetAsync($"api.openweathermap" +
+                await client.GetAsync($"http://api.openweathermap" +
                 $".org/data/2.5/weather?q={city}&appid=" +
 
                 $"{APIKeys.OpenWeatherKey}");
@@ -31,7 +31,7 @@ namespace updated_group_project.Service
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<MainWeather>(json);
+                return JsonConvert.DeserializeObject<WeatherObject>(json);
             }
             return null;
         }

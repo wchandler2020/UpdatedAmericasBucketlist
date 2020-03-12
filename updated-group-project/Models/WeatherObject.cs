@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace updated_group_project.Models
 {
 
-    public class Rootobject
+    public class WeatherObject
     {
         public Coord coord { get; set; }
         public MainWeather[] weather { get; set; }
