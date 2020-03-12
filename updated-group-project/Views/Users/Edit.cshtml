@@ -4,53 +4,76 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/userprofile.css">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="menu-icon">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <div class="logo">
+                    <a href=""><img src="./images/ABL.png" alt="America's Bucket List" class="logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Event Details</a></li>
+                        <li><a href="#">User Profile</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="UserId" />
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+        <div class="container">
+            <div class="Back">
+                <i class="fa fa-arrow-left" onclick="Back()"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            <p class="h3 text-center heading-text">User Profile</p>
+            <form action="" method="post" class="user-form">
+                <div class="preview text-center">
+                    <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200" />
+                    <!-- <div class="browse-button">
+                        <i class="fa fa-pencil-alt"></i>
+                        <input class="browse-input" type="file" required name="UploadedFile" id="UploadedFile"/>
+                    </div> -->
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input class="form-control" type="text" name="firstname" required placeholder="Enter Your First Name" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input class="form-control" type="text" name="lastname" required placeholder="Enter Your Last Name" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control" type="email" name="email" required placeholder="Enter Your Email" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="submit" value="Save Changes" />
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="submit" value="Log Out" />
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="~/js/profile.js"></script>
+</body>
+</html>
 
