@@ -35,5 +35,26 @@ namespace updated_group_project.Services
             }
             return null;
         }
+        public async Task<EventObject> SearchByCategory()
+        {
+            var keyword = "q";
+            var location = "l";
+            var when = "t";
+            var category = "c";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response =
+                await client.GetAsync($"http://eventful.com/events?" +
+                $"q={keyword}&" +
+                $"l={location}&" +
+                $"t={when}&" +
+                $"c={category} &app_key={APIKeys.EventfulApiKey}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<EventObject>(json);
+            }
+            return null;
+        }
     }
 }
