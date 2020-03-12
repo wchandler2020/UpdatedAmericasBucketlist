@@ -16,8 +16,11 @@ namespace updated_group_project.Data
         }
         public DbSet<EventDetails> EventDetails { get; set; }
         public DbSet<User> User { get; set; }
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
 
     }
 }
