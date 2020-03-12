@@ -8,6 +8,6 @@ namespace updated_group_project.Interfaces
 {
    public  interface IWeatherService
    {
-        Task<MainWeather> GetWeather();
+        Task<Main> GetWeather();
    }
 }

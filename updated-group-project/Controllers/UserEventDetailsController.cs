@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,27 +8,36 @@ using Microsoft.EntityFrameworkCore;
 using updated_group_project.Data;
 using updated_group_project.Interfaces;
 using updated_group_project.Models;
+using updated_group_project.Services;
 
 namespace updated_group_project.Controllers
 {
-    public class EventDetailsController : Controller
+    public class UserEventDetailsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public EventDetailsController(ApplicationDbContext context)
+        public UserEventDetailsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index([FromServices] IEventService eventServices)
+        // GET: UserEventDetails
+       
+        public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
         {
-            EventObject eventful = await eventServices.GetEvent();
-
-            return View(eventful);
-
+            EventObject eventfull = await EventServices.GetEvent();
+            return View(eventfull.events.eventArray);
         }
 
-        // GET: EventDetails/Details/5
+        //public async Task<IActionResult> Get([FromServices] IEventService EventServices)
+        //{
+        //    EventObject eventfull = await EventServices.GetEvent();
+        //    UserEventDetails ud = new UserEventDetails();
+        //    foreach(Event e in )
+        //    return View(eventfull.events.eventArray);
+        //}
+
+        // GET: UserEventDetails/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -36,39 +45,39 @@ namespace updated_group_project.Controllers
                 return NotFound();
             }
 
-            var eventDetails = await _context.EventDetails
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (eventDetails == null)
+            var userEventDetails = await _context.UserEventDetails
+                .FirstOrDefaultAsync(m => m.IEventId == id);
+            if (userEventDetails == null)
             {
                 return NotFound();
             }
 
-            return View(eventDetails);
+            return View(userEventDetails);
         }
 
-        // GET: EventDetails/Create
+        // GET: UserEventDetails/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: EventDetails/Create
+        // POST: UserEventDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,cityName,desciption,startTime,stopTime,venueDisplay,title,venueAddress,image")] EventDetails eventDetails)
+        public async Task<IActionResult> Create([Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(eventDetails);
+                _context.Add(userEventDetails);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(eventDetails);
+            return View(userEventDetails);
         }
 
-        // GET: EventDetails/Edit/5
+        // GET: UserEventDetails/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,22 +85,22 @@ namespace updated_group_project.Controllers
                 return NotFound();
             }
 
-            var eventDetails = await _context.EventDetails.FindAsync(id);
-            if (eventDetails == null)
+            var userEventDetails = await _context.UserEventDetails.FindAsync(id);
+            if (userEventDetails == null)
             {
                 return NotFound();
             }
-            return View(eventDetails);
+            return View(userEventDetails);
         }
 
-        // POST: EventDetails/Edit/5
+        // POST: UserEventDetails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,cityName,desciption,startTime,stopTime,venueDisplay,title,venueAddress,image")] EventDetails eventDetails)
+        public async Task<IActionResult> Edit(int id, [Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
         {
-            if (id != eventDetails.Id)
+            if (id != userEventDetails.IEventId)
             {
                 return NotFound();
             }
@@ -100,12 +109,12 @@ namespace updated_group_project.Controllers
             {
                 try
                 {
-                    _context.Update(eventDetails);
+                    _context.Update(userEventDetails);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventDetailsExists(eventDetails.Id))
+                    if (!UserEventDetailsExists(userEventDetails.IEventId))
                     {
                         return NotFound();
                     }
@@ -116,10 +125,10 @@ namespace updated_group_project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(eventDetails);
+            return View(userEventDetails);
         }
 
-        // GET: EventDetails/Delete/5
+        // GET: UserEventDetails/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,29 +136,30 @@ namespace updated_group_project.Controllers
                 return NotFound();
             }
 
-            var eventDetails = await _context.EventDetails
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (eventDetails == null)
+            var userEventDetails = await _context.UserEventDetails
+                .FirstOrDefaultAsync(m => m.IEventId == id);
+            if (userEventDetails == null)
             {
                 return NotFound();
             }
 
-            return View(eventDetails);
+            return View(userEventDetails);
         }
 
-        // POST: EventDetails/Delete/5
+        // POST: UserEventDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var eventDetails = await _context.EventDetails.FindAsync(id);
-            _context.EventDetails.Remove(eventDetails);
+            var userEventDetails = await _context.UserEventDetails.FindAsync(id);
+            _context.UserEventDetails.Remove(userEventDetails);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        private bool EventDetailsExists(int id)
+
+        private bool UserEventDetailsExists(int id)
         {
-            return _context.EventDetails.Any(e => e.Id == id);
+            return _context.UserEventDetails.Any(e => e.IEventId == id);
         }
     }
 }
