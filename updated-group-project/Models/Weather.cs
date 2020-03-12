@@ -15,10 +15,7 @@ namespace updated_group_project.Models
         public Main main { get; set; }
         public int visibility { get; set; }
         public Wind wind { get; set; }
-<<<<<<< HEAD
         public Rain rain { get; set; }
-=======
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
         public Clouds clouds { get; set; }
         public int dt { get; set; }
         public Sys sys { get; set; }
@@ -30,26 +27,18 @@ namespace updated_group_project.Models
 
     public class Coord
     {
-<<<<<<< HEAD
+
         public int lon { get; set; }
         public float lat { get; set; }
-=======
-        public float lon { get; set; }
-        public int lat { get; set; }
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
+
     }
 
     public class Main
     {
         public float temp { get; set; }
         public float feels_like { get; set; }
-<<<<<<< HEAD
         public float temp_min { get; set; }
         public float temp_max { get; set; }
-=======
-        public int temp_min { get; set; }
-        public int temp_max { get; set; }
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
@@ -59,14 +48,10 @@ namespace updated_group_project.Models
         public float speed { get; set; }
         public int deg { get; set; }
     }
-<<<<<<< HEAD
-
     public class Rain
     {
         public float _1h { get; set; }
     }
-=======
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
 
     public class Clouds
     {
@@ -90,9 +75,4 @@ namespace updated_group_project.Models
         public string icon { get; set; }
     }
 
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4

@@ -21,12 +21,12 @@ namespace updated_group_project.Controllers
         }
 
         // GET: EventDetails
-        public async Task<IActionResult> Index([FromServices] IEventService eventServices)
-        {
-            EventObject eventFull = await eventServices.GetEvent();
-            _context.EventDetails.Where(c => c.title == );
-            return View(eventFull);
-        }
+        //public async Task<IActionResult> Index([FromServices] IEventService eventServices)
+        //{
+        //    EventObject eventFull = await eventServices.GetEvent();
+        //    _context.EventDetails.Where(c => c.title == );
+        //    return View(eventFull);
+        //}
 
         // GET: EventDetails/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -25,7 +25,7 @@ namespace updated_group_project.Controllers
         public IActionResult Index()
         {
             //redirect after google login
-            return RedirectToAction("CreateUser", "Users");
+            return RedirectToAction("Index", "Shared");
         }
 
         public IActionResult Privacy()

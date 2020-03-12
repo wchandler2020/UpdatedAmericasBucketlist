@@ -19,10 +19,6 @@ namespace updated_group_project.Services
 
         public async Task<EventObject> GetEvent()
         {
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a405484ccd804595022bb4a73dfc52c686cd8a4
             var City = "Chicago";
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
