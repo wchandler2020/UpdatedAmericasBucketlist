@@ -17,7 +17,7 @@ namespace updated_group_project.Service
 
         }
 
-        public async Task<WeatherObject>GetWeather()
+        public async Task<Main>GetWeather()
         {
 
             var city = "Chicago";
@@ -31,7 +31,7 @@ namespace updated_group_project.Service
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<WeatherObject>(json);
+                return JsonConvert.DeserializeObject<Main>(json);
             }
             return null;
         }
