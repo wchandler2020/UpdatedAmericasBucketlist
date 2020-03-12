@@ -18,6 +18,7 @@ namespace updated_group_project.Models
         public string title { get; set; }
         public string venueAddress { get; set; }
         public string image { get; set; }
-
+        public string venue_name { get; set; }
+        public string url { get; set; }
     }
 }

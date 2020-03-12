@@ -27,15 +27,11 @@ namespace updated_group_project.Models
 
     public class Coord
     {
-<<<<<<< HEAD
 
         public int lon { get; set; }
         public float lat { get; set; }
 
-=======
-        public int lon { get; set; }
-        public float lat { get; set; }
->>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
+
     }
 
     public class Main
@@ -44,10 +40,6 @@ namespace updated_group_project.Models
         public float feels_like { get; set; }
         public float temp_min { get; set; }
         public float temp_max { get; set; }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
         public int pressure { get; set; }
         public int humidity { get; set; }
     }
@@ -62,10 +54,7 @@ namespace updated_group_project.Models
     {
         public float _1h { get; set; }
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
 
     public class Clouds
     {
@@ -88,12 +77,10 @@ namespace updated_group_project.Models
         public string description { get; set; }
         public string icon { get; set; }
     }
-<<<<<<< HEAD
+
 
 
 }
 
 
-=======
-}
->>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
+

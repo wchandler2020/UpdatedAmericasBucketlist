@@ -8,11 +8,6 @@ namespace updated_group_project.Views
     public class APIKeys
     {
         public static readonly string OpenWeatherKey = "0dcee5b72a7ba8465967f8eb2a8aaa57";
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 8377d666caf7da4097235ebd8c68382d6480f4ed
         public static readonly string EventfulApiKey = "JWsFDt7StgkxZdZb";
 
     }
