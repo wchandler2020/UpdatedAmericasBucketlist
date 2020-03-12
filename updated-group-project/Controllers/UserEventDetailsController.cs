@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -66,15 +67,17 @@ namespace updated_group_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
+        public async Task<IActionResult> Create([Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(userEventDetails);
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                user.AppUserId = userId;
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(userEventDetails);
+            return View(user);
         }
 
         // GET: UserEventDetails/Edit/5

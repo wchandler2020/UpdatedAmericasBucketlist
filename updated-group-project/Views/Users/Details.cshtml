@@ -1,9 +1,28 @@
-﻿@model updated_group_project.Models.User
+﻿@model updated_group_project.Models.Event[]
 
 @{
     ViewData["Title"] = "Details";
 }
 
+<<<<<<< HEAD
+
+
+@foreach (var item in Model)
+{
+    <ul class=“list-group”>
+        <div class=“card” style=“width: 18rem;“>
+            <img class=“card-img-top” src=“@Html.DisplayFor(modelItem =>  item.image.medium.url)/>
+
+            <div class=“card-body”>
+                <h5 class=“card-title”>@Html.DisplayFor(modelItem => item.title)</h5>
+                <p class=“card-text”>@Html.DisplayFor(modelItem => item.start_time)</p>
+                <p class=“card-text”>@Html.DisplayFor(modelItem => item.stop_time)</p>
+                <a href=“#” class=“btn btn-primary”>See More</a>
+            </div>
+        </div>
+    </ul>
+}
+=======
 <<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -138,3 +157,4 @@
     <a asp-action="Edit" asp-route-id="@Model.UserId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+>>>>>>> ea4fba00ceb17b067fd8659a91024ec83a0716da

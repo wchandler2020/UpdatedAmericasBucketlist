@@ -12,7 +12,6 @@ namespace updated_group_project.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-
         }
         public DbSet<UserEventDetails> UserEventDetails { get; set; }
         public DbSet<User> User { get; set; }
