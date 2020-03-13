@@ -19,11 +19,7 @@ namespace updated_group_project.Models
         public string venue_name { get; set; }
         public string venue_address { get; set; }
 
-        [ForeignKey("User")]
-
-        public string UserId { get; set; }
-
-        public string Username { get; set; }
+        
 
 
 
