@@ -3,8 +3,9 @@ html, body {
     padding: 0;
     box-sizing: border-box;
     width: 100%;
-    font-family: "Helvetica Neue",sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: lighter;
+    font-size: 16px;
 }
 
 .section {
@@ -19,16 +20,18 @@ html, body {
 }
 
     .section h1 {
+        
         font-family: 'Permanent Marker', cursive;
         text-align: center;
-        font-size: 50px;
+        font-size: 5.5em;
+        letter-spacing: 1;
         position: absolute;
         z-index: 1;
         color: white;
         margin: auto;
         display: table-cell;
         vertical-align: middle;
-        top: 20%;
+        top: 30%;
     }
 
 .overlay {

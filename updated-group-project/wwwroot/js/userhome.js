@@ -1,3 +1,5 @@
+alert("it is connected")
+
 //jquery for select list
 $(function () {
 
