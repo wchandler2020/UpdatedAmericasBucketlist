@@ -62,6 +62,7 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 user.AppUserId = userId;
                 _context.Add(user);

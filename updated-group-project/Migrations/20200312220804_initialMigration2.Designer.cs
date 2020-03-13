@@ -10,8 +10,8 @@ using updated_group_project.Data;
 namespace updated_group_project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200312193028_Init")]
-    partial class Init
+    [Migration("20200312220804_initialMigration2")]
+    partial class initialMigration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

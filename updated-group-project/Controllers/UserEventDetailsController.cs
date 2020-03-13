@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,11 +26,36 @@ namespace updated_group_project.Controllers
         public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
         {
             EventObject eventfull = await EventServices.GetEvent();
+            foreach(Event e in eventfull.events.eventArray)
+            {
+                UserEventDetails ud = new UserEventDetails();
+                ud.city_name = e.city_name;
+                ud.title = e.title;
+                ud.description = e.description;
+                ud.start_time = e.start_time;
+                ud.stop_time = e.stop_time;
+                ud.venue_name = e.venue_name;
+                ud.venue_address = e.venue_address;
+                _context.SaveChanges();
+          
+            }
             return View(eventfull.events.eventArray);
         }
 
+        public async Task<IActionResult> Search ([FromServices] IEventService EventService)
+        {
+            EventObject eventful = await EventService.Search();
+            return View(eventful.events.eventArray);
+        }
         
-
+        public IActionResult Search(int review, UserEventDetails ud)
+        {
+           if (review == ud.rating)
+           {
+                return View(_context.UserEventDetails.Where(e => e.rating == review).FirstOrDefault());
+           }
+            return View();
+        }
        
 
         // GET: UserEventDetails/Details/5
@@ -50,78 +76,81 @@ namespace updated_group_project.Controllers
             return View(userEventDetails);
         }
 
-        //// GET: UserEventDetails/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
+        //GET: UserEventDetails/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        //// POST: UserEventDetails/Create
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(userEventDetails);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(userEventDetails);
-        //}
 
-        // GET: UserEventDetails/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // POST: UserEventDetails/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                _context.Add(userEventDetails);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(userEventDetails);
+        }
 
-        //    var userEventDetails = await _context.UserEventDetails.FindAsync(id);
-        //    if (userEventDetails == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(userEventDetails);
-        //}
 
-        //// POST: UserEventDetails/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
-        //{
-        //    if (id != userEventDetails.IEventId)
-        //    {
-        //        return NotFound();
-        //    }
+       // GET: UserEventDetails/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(userEventDetails);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!UserEventDetailsExists(userEventDetails.IEventId))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(userEventDetails);
-        //}
+            var userEventDetails = await _context.UserEventDetails.FindAsync(id);
+            if (userEventDetails == null)
+            {
+                return NotFound();
+            }
+            return View(userEventDetails);
+        }
+
+        // POST: UserEventDetails/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IEventId,city_name,description,start_time,stop_time,title,venue_name,venue_address,UserId,Username")] UserEventDetails userEventDetails)
+        {
+            if (id != userEventDetails.IEventId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(userEventDetails);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserEventDetailsExists(userEventDetails.IEventId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(userEventDetails);
+        }
 
         // GET: UserEventDetails/Delete/5
         public async Task<IActionResult> Delete(int? id)

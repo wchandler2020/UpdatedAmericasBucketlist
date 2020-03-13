@@ -21,11 +21,13 @@ namespace updated_group_project.Services
         {
             
             var City = "";
+
             HttpClient client = new HttpClient();
             HttpResponseMessage response =
                 await client.GetAsync($"http://api.eventful" +
                 $".com/json/events/search?...&location={City}" +
                 $"&date=Future &app_key={APIKeys.EventfulApiKey}");
+
 
             if (response.IsSuccessStatusCode)
             {
@@ -34,6 +36,7 @@ namespace updated_group_project.Services
             }
             return null;
         }
+       
 
         public async Task<EventObject> Search()
         {

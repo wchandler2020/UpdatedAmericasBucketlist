@@ -16,8 +16,8 @@ namespace updated_group_project.Service
         {
 
         }
-
         public async Task<Main>GetWeather()
+
         {
 
             var city = "Chicago";
