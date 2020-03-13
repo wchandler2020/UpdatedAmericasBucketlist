@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,20 +23,40 @@ namespace updated_group_project.Controllers
         }
 
         // GET: UserEventDetails
-       
         public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
         {
             EventObject eventfull = await EventServices.GetEvent();
+            foreach(Event e in eventfull.events.eventArray)
+            {
+                UserEventDetails ud = new UserEventDetails();
+                ud.city_name = e.city_name;
+                ud.title = e.title;
+                ud.description = e.description;
+                ud.start_time = e.start_time;
+                ud.stop_time = e.stop_time;
+                ud.venue_name = e.venue_name;
+                ud.venue_address = e.venue_address;
+                _context.SaveChanges();
+          
+            }
             return View(eventfull.events.eventArray);
         }
 
-        //public async Task<IActionResult> Get([FromServices] IEventService EventServices)
-        //{
-        //    EventObject eventfull = await EventServices.GetEvent();
-        //    UserEventDetails ud = new UserEventDetails();
-        //    foreach(Event e in )
-        //    return View(eventfull.events.eventArray);
-        //}
+        public async Task<IActionResult> Search ([FromServices] IEventService EventService)
+        {
+            EventObject eventful = await EventService.Search();
+            return View(eventful.events.eventArray);
+        }
+        
+        public IActionResult Search(int review, UserEventDetails ud)
+        {
+           if (review == ud.rating)
+           {
+                return View(_context.UserEventDetails.Where(e => e.rating == review).FirstOrDefault());
+           }
+            return View();
+        }
+       
 
         // GET: UserEventDetails/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -55,11 +76,12 @@ namespace updated_group_project.Controllers
             return View(userEventDetails);
         }
 
-        // GET: UserEventDetails/Create
+        //GET: UserEventDetails/Create
         public IActionResult Create()
         {
             return View();
         }
+
 
         // POST: UserEventDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -70,6 +92,7 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(userEventDetails);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -77,7 +100,8 @@ namespace updated_group_project.Controllers
             return View(userEventDetails);
         }
 
-        // GET: UserEventDetails/Edit/5
+
+       // GET: UserEventDetails/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
