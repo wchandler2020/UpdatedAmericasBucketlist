@@ -21,6 +21,12 @@ namespace updated_group_project.Models
         public string review { get; set; }
         public int rating { get; set; }
 
+        [ForeignKey("User")]
+
+        public User ThisId { get; set; }
+
+        public string ThisUsername { get; set; }
+        
         
 
 
