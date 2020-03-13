@@ -26,12 +26,9 @@ namespace updated_group_project.Models
 
     public class Coord
     {
-<<<<<<< HEAD:updated-group-project/Models/Weather.cs
 
-        public int lon { get; set; }
-=======
         public float lon { get; set; }
->>>>>>> ea4fba00ceb17b067fd8659a91024ec83a0716da:updated-group-project/Models/WeatherObject.cs
+
         public float lat { get; set; }
 
 
