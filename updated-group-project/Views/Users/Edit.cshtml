@@ -4,40 +4,21 @@
     ViewData["Title"] = "Edit";
 }
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/userprofile.css">
-    <title>User Profile</title>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <nav>
-                <div class="menu-icon">
-                    <i class="fa fa-bars fa-2x"></i>
-                </div>
-                <div class="logo">
-                    <a href=""><img src="./images/ABL.png" alt="America's Bucket List" class="logo"></a>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">Event Details</a></li>
-                        <li><a href="#">User Profile</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<h1>Edit</h1>
 
-        <div class="container">
-            <div class="Back">
-                <i class="fa fa-arrow-left" onclick="Back()"></i>
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-
+            </form>
             <p class="h3 text-center heading-text">User Profile</p>
             <form action="" method="post" class="user-form">
                 <div class="preview text-center">
@@ -77,7 +58,10 @@
         <script src="~/js/profile.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
+=======
 
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
             <div class="form-group">
                 <label asp-for="Age" class="control-label"></label>
                 <input asp-for="Age" class="form-control" />
@@ -88,6 +72,10 @@
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 723e92f48f6f4ab0a9546332ff75c071a6e409b7
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -118,8 +106,16 @@
             </div>
         
   
+>>>>>>> 273481ea0f893be8e52747d4c9bc1b88202f31d4
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 273481ea0f893be8e52747d4c9bc1b88202f31d4
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
