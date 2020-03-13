@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using System.Security.Claims;
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using updated_group_project.Data;
+<<<<<<< HEAD
 using updated_group_project.Interfaces;
+=======
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
 using updated_group_project.Models;
 
 namespace updated_group_project.Controllers
@@ -21,10 +28,17 @@ namespace updated_group_project.Controllers
         }
 
         // GET: Users
+<<<<<<< HEAD
         public async Task<IActionResult> Index([FromServices] IEventService EventServices)
         {
             EventObject eventfull = await EventServices.GetEvent();
             return View(eventfull.events.eventArray);
+=======
+        public async Task<IActionResult> Index()
+        {
+            var applicationDbContext = _context.User.Include(u => u.AppUser);
+            return View(await applicationDbContext.ToListAsync());
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
         }
 
         // GET: Users/Details/5
@@ -62,6 +76,12 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                user.AppUserId = userId;
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

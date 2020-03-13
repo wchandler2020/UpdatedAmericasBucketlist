@@ -24,7 +24,7 @@ html, body {
         font-family: 'Permanent Marker', cursive;
         text-align: center;
         font-size: 5.5em;
-        letter-spacing: 1;
+        letter-spacing: .3;
         position: absolute;
         z-index: 1;
         color: white;

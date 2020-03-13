@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +21,28 @@
     <title>America's Bucket List | Home</title>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="menu-icon">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <div class="logo">
+                    <a href=""><img src="./images/ABL.png" alt="America's Bucket List" class="logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Events Details</a></li>
+                        <li><a href="#">User Profile</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+    </div>
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
     <div class="container">
         <br />
         <div class="row">
@@ -98,3 +123,83 @@
     <script src="~/js/userhome.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
+=======
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppUser)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppUser.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699

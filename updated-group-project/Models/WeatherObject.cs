@@ -28,6 +28,7 @@ namespace updated_group_project.Models
     {
         public float lon { get; set; }
         public float lat { get; set; }
+
     }
 
     public class Main
@@ -46,6 +47,7 @@ namespace updated_group_project.Models
         public int deg { get; set; }
         public float gust { get; set; }
     }
+
 
     public class Clouds
     {
@@ -68,4 +70,10 @@ namespace updated_group_project.Models
         public string description { get; set; }
         public string icon { get; set; }
     }
+
+
+
 }
+
+
+

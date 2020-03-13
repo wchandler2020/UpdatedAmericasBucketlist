@@ -18,6 +18,50 @@
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
+<<<<<<< HEAD
+=======
+
+            <p class="h3 text-center heading-text">User Profile</p>
+            <form action="" method="post" class="user-form">
+                <div class="preview text-center">
+                    <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200" />
+                    <!-- <div class="browse-button">
+                        <i class="fa fa-pencil-alt"></i>
+                        <input class="browse-input" type="file" required name="UploadedFile" id="UploadedFile"/>
+                    </div> -->
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input class="form-control" type="text" name="firstname" required placeholder="Enter Your First Name" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input class="form-control" type="text" name="lastname" required placeholder="Enter Your Last Name" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control" type="email" name="email" required placeholder="Enter Your Email" />
+                    <span class="Error"></span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="submit" value="Save Changes" />
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="submit" value="Log Out" />
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="~/js/profile.js"></script>
+</body>
+</html>
+
+>>>>>>> d9c97c2592d9a321e84813c140c44b9428f8f699
             <div class="form-group">
                 <label asp-for="Age" class="control-label"></label>
                 <input asp-for="Age" class="form-control" />
@@ -57,9 +101,8 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
+        
+  
 
 <div>
     <a asp-action="Index">Back to List</a>
