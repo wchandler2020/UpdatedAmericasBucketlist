@@ -1,4 +1,3 @@
-alert("it is connected")
 
 //jquery for select list
 $(function () {
@@ -43,7 +42,7 @@ $(function () {
 
 var city = $('#city').val();
 
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1e5820fdfe73e01b9d8e5a82bdf9528a";
     function (data) {
         console.log(data);
 
@@ -61,7 +60,7 @@ $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=i
 function getWeather() {
     $('.weatherResponse').html('');
     var city = $('#city').val();
-    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1e5820fdfe73e01b9d8e5a82bdf9528a";
 
     $.getJSON(apiCall, weatherCallback);
 
