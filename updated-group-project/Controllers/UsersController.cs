@@ -21,16 +21,42 @@ namespace updated_group_project.Controllers
             _context = context;
         }
 
+<<<<<<< HEAD
         // GET: Users
+=======
+   
+        public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
+        {
+            EventObject eventfull = await EventServices.GetEvent();
+            return View(eventfull.events.eventArray);
+        }
+
+        public async Task<IActionResult> EventDetails([FromServices] IEventService EventService)
+        {
+            EventObject eventfull = await EventService.SearchId();
+            return View(eventfull.events.eventArray);
+
+
+        }
+
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.User.Include(u => u.AppUser);
             return View(await applicationDbContext.ToListAsync());
+<<<<<<< HEAD
+=======
+
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
         }
+
+
+        
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -63,6 +89,10 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 user.AppUserId = userId;
                 _context.Add(user);

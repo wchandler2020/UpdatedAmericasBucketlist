@@ -10,5 +10,6 @@ namespace updated_group_project.Interfaces
     {
         Task<EventObject> GetEvent();
         Task<EventObject> Search();
+        Task<EventObject> SearchId();
     }
 }
