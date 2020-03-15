@@ -62,6 +62,24 @@ namespace updated_group_project.Services
             return null;
         }
 
+        public async Task<EventObject> SearchId()
+        {
+            var id = "";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response =
+                await client.GetAsync("http://api.eventful" +
+               $".com/json/events/get?..."+
+               $"&id={id}"+ $"&app_key={APIKeys.EventfulApiKey}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<EventObject>(json);
+            }
+            return null;
+
+        }
+
         
     }   
 

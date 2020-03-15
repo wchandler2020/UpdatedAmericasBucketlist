@@ -21,17 +21,35 @@ namespace updated_group_project.Controllers
             _context = context;
         }
 
-        // GET: Users
+   
+        public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
+        {
+            EventObject eventfull = await EventServices.GetEvent();
+            return View(eventfull.events.eventArray);
+        }
+
+        public async Task<IActionResult> EventDetails([FromServices] IEventService EventService)
+        {
+            EventObject eventfull = await EventService.SearchId();
+            return View(eventfull.events.eventArray);
+
+
+        }
 
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.User.Include(u => u.AppUser);
             return View(await applicationDbContext.ToListAsync());
 
+        }
+
+
+        
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -64,7 +82,6 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
-
 
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 user.AppUserId = userId;
