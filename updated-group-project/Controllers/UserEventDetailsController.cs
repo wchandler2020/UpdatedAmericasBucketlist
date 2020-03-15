@@ -26,19 +26,6 @@ namespace updated_group_project.Controllers
         public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
         {
             EventObject eventfull = await EventServices.GetEvent();
-            foreach(Event e in eventfull.events.eventArray)
-            {
-                UserEventDetails ud = new UserEventDetails();
-                ud.city_name = e.city_name;
-                ud.title = e.title;
-                ud.description = e.description;
-                ud.start_time = e.start_time;
-                ud.stop_time = e.stop_time;
-                ud.venue_name = e.venue_name;
-                ud.venue_address = e.venue_address;
-                _context.SaveChanges();
-          
-            }
             return View(eventfull.events.eventArray);
         }
 
