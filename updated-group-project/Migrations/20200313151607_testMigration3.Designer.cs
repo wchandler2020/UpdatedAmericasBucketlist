@@ -10,8 +10,8 @@ using updated_group_project.Data;
 namespace updated_group_project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200312224717_01")]
-    partial class _01
+    [Migration("20200313151607_testMigration3")]
+    partial class testMigration3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -249,9 +249,6 @@ namespace updated_group_project.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
@@ -273,6 +270,12 @@ namespace updated_group_project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("review")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("start_time")

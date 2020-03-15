@@ -2,7 +2,7 @@
 
 namespace updated_group_project.Migrations
 {
-    public partial class initialMigration2 : Migration
+    public partial class testMigration3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

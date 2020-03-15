@@ -345,6 +345,29 @@ nav ul li {
     padding-top: 100px;
 }
 
-    .list-arrows button {
-        margin-bottom: 20px;
-    }
+.list-arrows button {
+    margin-bottom: 20px;
+}
+
+.weather-container {
+    background: white;
+    text-align: center;
+}
+
+.weather {
+    font-size: 22px;
+    margin: 0;
+}
+
+.temp {
+    font-size: 60px;
+    margin: 0;
+    font-weight: bold;
+}
+
+#city {
+    text-align: center;
+    font-size: 25px;
+    margin: 0;
+    position: relative;
+}

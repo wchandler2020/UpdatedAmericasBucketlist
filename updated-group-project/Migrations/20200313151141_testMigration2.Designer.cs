@@ -10,8 +10,8 @@ using updated_group_project.Data;
 namespace updated_group_project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200312220804_initialMigration2")]
-    partial class initialMigration2
+    [Migration("20200313151141_testMigration2")]
+    partial class testMigration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -249,9 +249,6 @@ namespace updated_group_project.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
@@ -269,16 +266,16 @@ namespace updated_group_project.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("city_name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("review")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("start_time")
