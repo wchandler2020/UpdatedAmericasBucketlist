@@ -18,46 +18,35 @@
 
     <title>Event Details</title>
 
+
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <nav>
-                <div class="menu-icon">
-                    <i class="fa fa-bars fa-2x"></i>
-                </div>
-                <div class="logo">
-                    <a href=""><img src="./images/ABL.png" alt="America's Bucket List" class="logo"></a>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">Events Details</a></li>
-                        <li><a href="#">User Profile</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
 
     </div>
     <div class="container">
         <br />
         <div class="row">
 
-            <span><h5 class="card-title">Concert In The Park</h5></span><span class=""><h5>Weather</h5></span>
-            <div class="card details-card" style="width: 80%; ">
+            @foreach (var item in Model)
+            {
+                if (true)
+                {
+                <span><h5 class="card-title">@Html.DisplayFor(modelItem => item.title)</h5></span><span class=""><h5></h5></span>
+                <div class="card details-card" style="width: 80%; ">
 
-                <img src="./images/eventsIMG.jpg" class="card-img-top" alt="events-image">
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima maxime quam error rerum dolorem necessitatibus, itaque nam mollitia sit recusandae quibusdam debitis sed reprehenderit consectetur! Nulla voluptatem, ipsam est libero, officia quo cumque nesciunt reprehenderit illum in eius iure dolore.</p>
+                    <img src="src=“@Html.DisplayFor(modelItem => item.image.medium.url)" alt="eventsimage" />
+                    <div class="card-body">
+                        <p>@Html.DisplayFor(modelItem => item.description)</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card details-card" style="width: 80%; ">
-                <div id="map" class="fh5co-map">
+                <div class="card details-card" style="width: 80%; ">
+                    <div id="map" class="fh5co-map">
+                    </div>
                 </div>
+                }
+            }
             </div>
-
-        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

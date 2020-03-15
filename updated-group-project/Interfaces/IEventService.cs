@@ -9,5 +9,6 @@ namespace updated_group_project.Interfaces
     public interface IEventService
     {
         Task<EventObject> GetEvent();
+        Task<EventObject> Search();
     }
 }

@@ -1,3 +1,5 @@
+alert("it is connected")
+
 //jquery for select list
 $(function () {
 
@@ -38,3 +40,36 @@ $(function () {
         }).hide();
     });
 });
+
+var city = $('#city').val();
+
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+    function (data) {
+        console.log(data);
+
+        var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+        var temp = Math.floor(data.main.temp);
+
+        var weather = data.weather[0].main;
+
+        $('.icon').attr('src', icon);
+        $('.weather').append(weather);
+        $('.temp').append(temp);
+    });
+
+function getWeather() {
+    $('.weatherResponse').html('');
+    var city = $('#city').val();
+    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+
+    $.getJSON(apiCall, weatherCallback);
+
+    function weatherCallback(weatherData) {
+        var city = weatherData.name;
+        var temp = Math.floor(weatherData.main.temp);
+        var description = weatherData.weather[0].description;
+        $('.weatherResponse').append("The weather in " + city + " is currently " + temp + " degrees and " + description + ".");
+        console.log(city, temp, description);
+    }
+}
