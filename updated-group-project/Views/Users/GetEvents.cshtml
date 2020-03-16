@@ -1,5 +1,6 @@
-ï»¿@model updated_group_project.Models.Event[]
+@model updated_group_project.Models.Event[]
 @{
+
     ViewData["Title"] = "GetEvents";
 }
 <!DOCTYPE html>
@@ -21,38 +22,39 @@
             <input type=â€œtextâ€ class=â€œform-controlâ€ id=â€œcityâ€ placeholder="Enter a city...">
             <button onclick=â€œgetWeather()â€œ> Submit </button>
             <div class=â€œweatherResponseâ€>
-            </div>
+           </div>
         </div>
     </form>
-    <div class="container">
+    <div class=“container”>
         <br />
-        <div class="row">
-            <div class="dual-list list-left col-md-5">
-                <div class="well text-right">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <span class="input-group-addon glyphicon glyphicon-search"></span>
-                                <input type="text" name="SearchDualList" class="form-control" placeholder="search" />
+        <div class=“row”>
+            <div class=“dual-list list-left col-md-5">
+                <div class=“well text-right”>
+                    <div class=“row”>
+                        <div class=“col-md-10”>
+                            <div class=“input-group”>
+                                <span class=“input-group-addon glyphicon glyphicon-search”></span>
+                                <input type=“text” name=“SearchDualList” class=“form-control” placeholder=“search” />
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div class="btn-group">
-                                <a class="btn btn-default selector" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
+                        <div class=“col-md-2">
+                            <div class=“btn-group”>
+                                <a class=“btn btn-default selector” title=“select all”><i class=“glyphicon glyphicon-unchecked”></i></a>
                             </div>
                         </div>
                     </div>
-                    <ul class="list-group">
+                    <ul class=“list-group”>
                         @foreach (var item in Model)
                         {
-                            <ul class=â€œlist-groupâ€>
-                                <div class=â€œcardâ€ style=â€œwidth: 18rem;â€œ>
-                                    <img class=â€œcard-img-topâ€ src=â€œ@Html.DisplayFor(modelItem => item.image.medium.url )/>
-                                    <div class=â€œcard-bodyâ€>
-                                        <h5 class=â€œcard-titleâ€>@Html.DisplayFor(modelItem => item.title)</h5>
-                                        <p class=â€œcard-textâ€>@Html.DisplayFor(modelItem => item.start_time)</p>
-                                        <p class=â€œcard-textâ€>@Html.DisplayFor(modelItem => item.description)</p>
-                                        <a asp-action="Details" class=â€œbtn btn-primaryâ€>Details</a>
+                            <ul class=“list-group”>
+                                <div class=“card” style=“width: 18rem;“>
+                                    <img class=“card-img-top” src=“@Html.DisplayFor(modelItem =>item.image.medium.url)/>
+                                    <div class=“card-body”>
+                                        <h5 class=“card-title”>@Html.DisplayFor(modelItem => item.title)</h5>
+                                        <p class=“card-text”>@Html.DisplayFor(modelItem => item.start_time)</p>
+                                        <p class=“card-text”>@Html.DisplayFor(modelItem => item.description)</p>
+                                        <a asp-action=“Details” class=“btn btn-primary”>Details</a>
+
                                     </div>
                                 </div>
                             </ul>
@@ -62,39 +64,39 @@
                     </ul>
                 </div>
             </div>
-            <div class="list-arrows col-md-1 text-center">
-                <button class="btn btn-default btn-sm move-left">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
+            <div class=“list-arrows col-md-1 text-center”>
+                <button class=“btn btn-default btn-sm move-left”>
+                    <span class=“glyphicon glyphicon-chevron-left”></span>
                 </button>
-                <button class="btn btn-default btn-sm move-right">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
+                <button class=“btn btn-default btn-sm move-right”>
+                    <span class=“glyphicon glyphicon-chevron-right”></span>
                 </button>
             </div>
-            <div class="dual-list list-right col-md-5">
-                <div class="well">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="btn-group">
-                                <a class="btn btn-default selector" title="select all"><i class="glyphicon glyphicon-unchecked"></i></a>
+            <div class=“dual-list list-right col-md-5">
+                <div class=“well”>
+                    <div class=“row”>
+                        <div class=“col-md-2”>
+                            <div class=“btn-group”>
+                                <a class=“btn btn-default selector” title=“select all”><i class=“glyphicon glyphicon-unchecked”></i></a>
                             </div>
                         </div>
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <input type="text" name="SearchDualList" class="form-control" placeholder="search" />
-                                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                        <div class=“col-md-10">
+                            <div class=“input-group”>
+                                <input type=“text” name=“SearchDualList” class=“form-control” placeholder=“search” />
+                                <span class=“input-group-addon glyphicon glyphicon-search”></span>
                             </div>
                         </div>
                     </div>
-                    <ul class="list-group">
+                    <ul class=“list-group”>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <script src=â€œhttps://code.jquery.com/jquery-3.3.1.slim.min.jsâ€ integrity=â€œsha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizoâ€ crossorigin=â€œanonymousâ€></script>
-    <script src=â€œhttps://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.jsâ€ integrity=â€œsha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1â€ crossorigin=â€œanonymousâ€></script>
-    <script src=â€œhttps://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.jsâ€ integrity=â€œsha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRMâ€ crossorigin=â€œanonymousâ€></script>
-    <script src="~/js/userhome.js"></script>
+    <script src=“https://code.jquery.com/jquery-3.3.1.slim.min.js” integrity=“sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo” crossorigin=“anonymous”></script>
+    <script src=“https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js” integrity=“sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin=“anonymous”></script>
+    <script src=“https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js” integrity=“sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM” crossorigin=“anonymous”></script>
+    <script src=“~/js/userhome.js”></script>
 </body>
 </html>
 

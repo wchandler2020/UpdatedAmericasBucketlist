@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 
 
 using System.Security.Claims;
 
 
+=======
+using System.Security.Claims;
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using updated_group_project.Data;
+<<<<<<< HEAD
 
 
 using updated_group_project.Interfaces;
 
 
+=======
+using updated_group_project.Interfaces;
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
 using updated_group_project.Models;
 
 namespace updated_group_project.Controllers
@@ -29,8 +37,14 @@ namespace updated_group_project.Controllers
             _context = context;
         }
 
+<<<<<<< HEAD
         // GET: Users
+<<<<<<< HEAD
 
+=======
+=======
+   
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
         public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
 
         {
@@ -42,12 +56,27 @@ namespace updated_group_project.Controllers
             EventObject eventfull = await EventService.SearchId();
             return View(eventfull.events.eventArray);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.User.Include(u => u.AppUser);
             return View(await applicationDbContext.ToListAsync());
+<<<<<<< HEAD
+=======
 
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
         }
+<<<<<<< HEAD
+=======
+
+
+        
+
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id, Event[] events)
         {
@@ -84,6 +113,10 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 686741d2557f548acfe59541bc7d816bd9a87cd7
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 user.AppUserId = userId;
                 _context.Add(user);

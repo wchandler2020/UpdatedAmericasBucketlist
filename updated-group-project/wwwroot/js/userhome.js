@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
 //jquery for select list
 $(function () {
     $(‘body’).on(‘click’, ‘.list - group.list - group - item’, function () {
@@ -59,7 +63,7 @@ function getWeather() {
 
 var city = $('#city').val();
 
-$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1e5820fdfe73e01b9d8e5a82bdf9528a";
     function (data) {
         console.log(data);
 
@@ -77,7 +81,7 @@ $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=i
 function getWeather() {
     $('.weatherResponse').html('');
     var city = $('#city').val();
-    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1e5820fdfe73e01b9d8e5a82bdf9528a";
 
     $.getJSON(apiCall, weatherCallback);
 
