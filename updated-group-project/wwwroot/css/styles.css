@@ -51,17 +51,12 @@ header
     width: 100%;
     height: 100px;
     overflow: hidden;
-=======
-    margin: 0;
->>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
     padding: 0;
     margin: 0;
     width: 100%;
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
     font-size: 16px;
-<<<<<<< HEAD
-
 }
 
 #headercontent {
@@ -78,16 +73,6 @@ header
     font-size: 20px;
     line-height: 30px;
     text-align: justify;
-}
-
-.section h1 {
-        
-    font-family: 'Permanent Marker', cursive;
-    text-align: center;
-    font-size: 5.5em;
-    letter-spacing: .3;
-    position: absolute;
-=======
 }
 
 .section {
@@ -107,7 +92,6 @@ header
         font-size: 5.5em;
         letter-spacing: .3;
         position: absolute;
->>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
         z-index: 1;
         color: white;
         margin: auto;
@@ -118,10 +102,6 @@ header
 
 .overlay {
     opacity: .5;
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
 }
 
 .menu-icon {
@@ -428,10 +408,10 @@ nav ul li {
 .list-arrows button 
 {
       margin-bottom: 20px;
-=======
+
 .list-arrows {
     padding-top: 100px;
->>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
+
 }
 
     .list-arrows button {
@@ -455,7 +435,7 @@ nav ul li {
 }
 
 #city {
-<<<<<<< HEAD
+
 text-align: center;  
 font-size: 25px;
 margin: 0;
@@ -467,10 +447,4 @@ position: relative;
     margin: 10px auto;
 }
 
-=======
-    text-align: center;
-    font-size: 25px;
-    margin: 0;
-    position: relative;
-}
->>>>>>> 3c166aa86432329d58313a5df45ca16fdd32f6b6
+
