@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+
+
 using System.Security.Claims;
+
+
+
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using updated_group_project.Data;
 using updated_group_project.Interfaces;
+
+
+
 using updated_group_project.Models;
 
 namespace updated_group_project.Controllers
@@ -21,19 +30,21 @@ namespace updated_group_project.Controllers
             _context = context;
         }
 
-   
+
+        // GET: Users
+
+
+
         public async Task<IActionResult> GetEvents([FromServices] IEventService EventServices)
+
         {
             EventObject eventfull = await EventServices.GetEvent();
             return View(eventfull.events.eventArray);
         }
-
         public async Task<IActionResult> EventDetails([FromServices] IEventService EventService)
         {
             EventObject eventfull = await EventService.SearchId();
             return View(eventfull.events.eventArray);
-
-
         }
 
         public async Task<IActionResult> Index()
@@ -43,11 +54,8 @@ namespace updated_group_project.Controllers
 
         }
 
-
-        
-
         // GET: Users/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, Event[] events)
         {
 
             if (id == null)
@@ -82,7 +90,6 @@ namespace updated_group_project.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 user.AppUserId = userId;
                 _context.Add(user);
