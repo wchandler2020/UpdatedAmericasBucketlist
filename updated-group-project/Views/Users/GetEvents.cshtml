@@ -1,10 +1,8 @@
 @model updated_group_project.Models.Event[]
 @{
-<<<<<<< HEAD:updated-group-project/Views/Users/Index.cshtml
-    ViewData[“Title”] = “Index”;
-=======
+
     ViewData["Title"] = "GetEvents";
->>>>>>> 5d3a730b1bb73af3de806a1f4243d81ba4cd6846:updated-group-project/Views/Users/GetEvents.cshtml
+
 }
 <!DOCTYPE html>
 <html>
@@ -50,7 +48,7 @@
                     <ul class=“list-group”>
                         @foreach (var item in Model)
                         {
-<<<<<<< HEAD:updated-group-project/Views/Users/Index.cshtml
+
                             <ul class=“list-group”>
                                 <div class=“card” style=“width: 18rem;“>
                                     <img class=“card-img-top” src=“@Html.DisplayFor(modelItem =>item.image.medium.url)/>
@@ -59,20 +57,10 @@
                                         <p class=“card-text”>@Html.DisplayFor(modelItem => item.start_time)</p>
                                         <p class=“card-text”>@Html.DisplayFor(modelItem => item.description)</p>
                                         <a asp-action=“Details” class=“btn btn-primary”>Details</a>
-=======
-                            <ul class=â€œlist-groupâ€>
-                                <div class=â€œcardâ€ style=â€œwidth: 18rem;â€œ>
-                                    <img class=â€œcard-img-topâ€ src=â€œ@Html.DisplayFor(modelItem => item.image.medium.url)/>
-                                    <div class=â€œcard-bodyâ€>
-                                        <h5 class=â€œcard-titleâ€>@Html.DisplayFor(modelItem => item.title)</h5>
-                                        <p class=â€œcard-textâ€>@Html.DisplayFor(modelItem => item.start_time)</p>
-                                        <p class=â€œcard-textâ€>@Html.DisplayFor(modelItem => item.description)</p>
-                                        <a asp-action="Details" class="btn btn-primary" >Details</a>
->>>>>>> 5d3a730b1bb73af3de806a1f4243d81ba4cd6846:updated-group-project/Views/Users/GetEvents.cshtml
+
                                     </div>
                                 </div>
                             </ul>
-                            <br />
                             <br />
                         }
                     </ul>

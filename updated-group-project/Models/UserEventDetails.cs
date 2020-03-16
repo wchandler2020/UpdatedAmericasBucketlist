@@ -26,10 +26,5 @@ namespace updated_group_project.Models
         public User ThisId { get; set; }
 
         public string ThisUsername { get; set; }
-        
-        
-
-
-
     }
 }
