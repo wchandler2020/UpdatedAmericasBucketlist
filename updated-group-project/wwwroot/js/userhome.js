@@ -48,16 +48,49 @@ $.getJSON(“http://api.openweathermap.org/data/2.5/weather?q=” + city + “&units=i
         $(‘.weather’).append(weather);
         $(‘.temp’).append(temp);
     });
+<<<<<<< HEAD
 function getWeather() {
     $(‘.weatherResponse’).html(‘’);
     var city = $(‘#city’).val();
     var apiCall = “http://api.openweathermap.org/data/2.5/weather?q=” + city + “&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57”;
         $.getJSON(apiCall, weatherCallback);
+=======
+});
+
+var city = $('#city').val();
+
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+    function (data) {
+        console.log(data);
+
+        var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+        var temp = Math.floor(data.main.temp);
+
+        var weather = data.weather[0].main;
+
+        $('.icon').attr('src', icon);
+        $('.weather').append(weather);
+        $('.temp').append(temp);
+    });
+
+function getWeather() {
+    $('.weatherResponse').html('');
+    var city = $('#city').val();
+    var apiCall = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=0dcee5b72a7ba8465967f8eb2a8aaa57";
+
+    $.getJSON(apiCall, weatherCallback);
+
+>>>>>>> 5d3a730b1bb73af3de806a1f4243d81ba4cd6846
     function weatherCallback(weatherData) {
         var city = weatherData.name;
         var temp = Math.floor(weatherData.main.temp);
         var description = weatherData.weather[0].description;
+<<<<<<< HEAD
         $(‘.weatherResponse’).append(“The weather in ” + city + ” is currently ” + temp + ” degrees and ” + description + “.”);
+=======
+        $('.weatherResponse').append("The weather in " + city + " is currently " + temp + " degrees and " + description + ".");
+>>>>>>> 5d3a730b1bb73af3de806a1f4243d81ba4cd6846
         console.log(city, temp, description);
     }
 }
